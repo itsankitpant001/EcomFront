@@ -48,7 +48,9 @@ const Home = () => {
   const handleAddToCart = async (product) => {
     const response = await axios.post(`https://ecomback-1dms.onrender.com/addtocart/${product._id}`, { userId });
     console.log(response.data.msg);
-    toast(`${response.data.msg} ${product.name} `)
+    toast(`${response.data.msg} ${product.name}`,{
+      autoClose: 500 
+    })
     if(response.data.msg=="added to cart")
     dispatch(cartslice.actions.addToCart(product));
   };
