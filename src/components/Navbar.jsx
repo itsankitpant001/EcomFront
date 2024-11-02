@@ -74,7 +74,7 @@ const Navbar = ()=>{
         <div className="md:hidden bg-gray-100">
           
           {!id?<NavLink to="/login" className="block px-4 py-2 text-sm text-gray-700">Login</NavLink>:""}
-          <NavLink to="/register" className="block px-4 py-2 text-sm text-gray-700">Sign Up</NavLink>
+          {!id?<NavLink to="/login" className="block px-4 py-2 text-sm text-gray-700">Login</NavLink>:""}
          {id? <button 
             onClick={handleLogout} 
             className="block px-4 py-2 bg-red-500 text-white w-full text-left hover:bg-red-600 transition-colors duration-300"

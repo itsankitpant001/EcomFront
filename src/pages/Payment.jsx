@@ -1,7 +1,15 @@
-import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 const Payment = () => {
+  const navigate=useNavigate()
+  const userId = window.localStorage.getItem('userId');
+  useEffect(()=>{
+    if(!userId){
+      navigate("/login")
+    }
+  },[])
   const location = useLocation();
   const paymentData = location.state?.paymentData; // Access paymentData from the location state
 

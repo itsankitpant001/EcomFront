@@ -7,6 +7,11 @@ import cartslice, { fetchCartData } from '../features/CartSlice';
 
 const Cart = () => {
   const userId = window.localStorage.getItem('userId');
+  useEffect(()=>{
+    if(!userId){
+      navigate("/login")
+    }
+  },[])
   const dispatch = useDispatch();
   dispatch(fetchCartData(userId));
 
